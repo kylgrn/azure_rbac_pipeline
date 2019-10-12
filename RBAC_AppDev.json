@@ -1,0 +1,25 @@
+{
+  "Name": "Production Application Developer Admin",
+  "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+  "IsCustom": true,
+  "Description": "Let's you make changes to approved application development services in Azure.",
+  "Actions": [
+    "Microsoft.Web/*",
+    "Microsoft.DevTestLab/*",
+    "Microsoft.DocumentDB/*",
+    "Microsoft.EventGrid/*",
+    "Microsoft.EventHub/*",
+    "Microsoft.Logic/*",
+    "Microsoft.NotificationHubs/*",
+    "Microsoft.ServiceBus/*",
+    "Microsoft.SQL/*"
+  ],
+  "NotActions": [
+    "*/delete"      
+],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
+}
