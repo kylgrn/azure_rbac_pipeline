@@ -20,6 +20,7 @@
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
-    "/"
+    "/subscriptions/8ee2aaf4-8329-4aa2-afa2-21cda345f7d4",
+    "/subscroptions/a70ba5e6-f570-4c74-ba83-aa1f6c9f010a"
   ]
 }
