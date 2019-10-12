@@ -7,5 +7,5 @@ steps:
   inputs:
     azureSubscription: $(Subscription)
     ScriptPath: 'SecurityOperations/NewRoleCreation.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: 
     azurePowerShellVersion: LatestVersion
