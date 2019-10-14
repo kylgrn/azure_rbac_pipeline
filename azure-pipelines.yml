@@ -6,8 +6,8 @@ steps:
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: $(Subscription)
-    ScriptPath: 'SecurityOperations/NewRoleCreation.ps1'
-    ScriptArguments: -ResourceGroupName 'RBACPipeline' -ResourceGroupLocation 'West US 2'
+    Script: New-AzRoleDefinition
+    ScriptArguments: -InputFile "SecurityOperations/RBAC_AppDev.JSON"
     azurePowerShellVersion: LatestVersion
 
   
