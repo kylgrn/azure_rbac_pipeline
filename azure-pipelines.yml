@@ -7,5 +7,5 @@ steps:
     inputs:
       azureSubscription: 'MAC.WEST.DEVOPS(8ee2aaf4-8329-4aa2-afa2-21cda345f7d4)'
       ScriptType: 'FilePath'
-      ScriptPath: 'SecurityOperations/NewRoleCreation.ps1'
+      ScriptPath: 'NewRoleCreation.ps1'
       azurePowerShellVersion: 'LatestVersion'
