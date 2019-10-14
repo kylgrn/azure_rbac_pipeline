@@ -6,6 +6,8 @@ steps:
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: $(Subscription)
-    ScriptPath: 'https://kgreen0633@dev.azure.com/kgreen0633/SecurityOperations/_git/SecurityOperations/NewRoleCreation.ps1'
-    ScriptArguments: 
+    ScriptPath: 'SecurityOperations/NewRoleCreation.ps1'
+    ScriptArguments: -ResourceGroupName 'RBACPipeline' -ResourceGroupLocation 'West US 2'
     azurePowerShellVersion: LatestVersion
+
+  
