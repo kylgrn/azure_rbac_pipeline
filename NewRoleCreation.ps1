@@ -1,4 +1,4 @@
 
 #New Custom Azure role definition
 
-New-AzRoleDefinition -InputFile "SecurityOperations/RBAC_AppDev.JSON"
+New-AzRoleDefinition -InputFile "RBAC_AppDev.JSON"
