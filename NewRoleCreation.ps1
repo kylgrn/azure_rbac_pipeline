@@ -1,6 +1,6 @@
 
 #New Custom Azure role definition
-$RoleName = 'Custom Application Developer Admin 2'
+$RoleName = 'Custom Application Developer Admin'
 $RoleDef = Get-AzRoleDefinition $RoleName 
 
 if ($RoleDef -eq $null)
@@ -10,7 +10,11 @@ $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinitio
 $role.Name = $RoleName
 $role.Description = 'Custom App Dev Role'
 $role.IsCustom = $true
-#These are the actions allowed by the custom role
+<#
+#####
+###########This is the section where you define the permissions this custom role is granted###########
+#####
+#>
 $perms = 'Microsoft.Storage/*/read','Microsoft.Network/*/read','Microsoft.Compute/*/read'
 $perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/virtualMachines/restart/action'
 $perms += 'Microsoft.Authorization/*/read'
@@ -19,6 +23,12 @@ $perms += 'Microsoft.Resources/subscriptions/resourceGroups/read'
 $perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
 $perms += 'Microsoft.Web/*/read'
 $perms += 'Microsoft.Web/*/write'
+<#
+#####
+######################################################################################################
+#####
+#>
+
 $role.Actions = $perms
 #These are the actions explicitly not allowed by the custom role
 $notperms = '*/delete'
