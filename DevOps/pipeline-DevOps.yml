@@ -7,6 +7,6 @@ steps:
   inputs:
     azureSubscription: 'Planet'
     ScriptType: 'FilePath'
-    ScriptPath: 'RBAC_DevOps.ps1'
+    ScriptPath: '/DevOps/RBAC_DevOps.ps1'
     ScriptArguments:
     azurePowerShellVersion: 'LatestVersion'
