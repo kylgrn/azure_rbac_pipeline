@@ -1,0 +1,12 @@
+pool:
+  name: Hosted Windows 2019 with VS2019
+  demands: azureps
+
+steps:
+- task: AzurePowerShell@4
+  inputs:
+    azureSubscription: 'Planet'
+    ScriptType: 'FilePath'
+    ScriptPath: '/DevOps/RBAC_SecOps.ps1'
+    ScriptArguments:
+    azurePowerShellVersion: 'LatestVersion'
