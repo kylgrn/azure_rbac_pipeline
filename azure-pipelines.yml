@@ -9,3 +9,27 @@ steps:
       ScriptType: 'FilePath'
       ScriptPath: 'NewRoleCreation.ps1'
       azurePowerShellVersion: 'LatestVersion'
+  - task: AzureFileCopy@3
+  displayName: 'Stage files'
+     inputs:
+      SourcePath: 'SecurityOperations'
+      azureSubscription: 'MAC.WEST.DEVOPS(8ee2aaf4-8329-4aa2-afa2-21cda345f7d4)'
+      Destination: 'AzureBlob'
+      storage: 'rgkylegreendiag'
+      ContainerName: 'democontainer'
+      outputStorageUri: 'artifactsLocation'
+      outputStorageContainerSasToken: 'artifactsLocationSasToken'
+      sasTokenTimeOutInMinutes: '240'
+  - task: AzureResourceGroupDeployment@2
+  displayName: 'Deploy template'
+    inputs:
+      azureSubscription: 'MAC.WEST.DEVOPS(8ee2aaf4-8329-4aa2-afa2-21cda345f7d4)'
+      resourceGroupName: 'RG-Kyle.Green'
+      location: 'South Central US'
+      templateLocation: 'URL of the file'
+      csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+      csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+      overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+
+
+  
