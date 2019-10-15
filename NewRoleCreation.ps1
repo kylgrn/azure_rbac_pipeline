@@ -3,13 +3,6 @@
 $RoleName = 'Custom Application Developer Admin'
 $RoleDef = Get-AzRoleDefinition $RoleName 
 
-if ($RoleDef -eq $null)
-{
-Write-host "Existing role not found"
-$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
-$role.Name = $RoleName
-$role.Description = 'Custom App Dev Role'
-$role.IsCustom = $true
 <#
 #####
 ###########This is the section where you define the permissions this custom role is granted###########
@@ -29,10 +22,18 @@ $perms += 'Microsoft.Web/*/write'
 #####
 #>
 
-$role.Actions = $perms
 #These are the actions explicitly not allowed by the custom role
 $notperms = '*/delete'
 $subs = '/subscriptions/8ee2aaf4-8329-4aa2-afa2-21cda345f7d4','/subscriptions/a70ba5e6-f570-4c74-ba83-aa1f6c9f010a'
+
+if ($RoleDef -eq $null)
+{
+Write-host "Existing role not found"
+$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+$role.Name = $RoleName
+$role.Description = 'Custom App Dev Role'
+$role.IsCustom = $true
+$role.Actions = $perms
 $role.AssignableScopes = $subs
 $role.NotActions = $notperms
 New-AzRoleDefinition -Role $role
