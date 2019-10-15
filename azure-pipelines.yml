@@ -5,7 +5,7 @@ pool:
 steps:
 - task: AzurePowerShell@4
   inputs:
-    azureSubscription: 'MAC.WEST.DEVOPS(8ee2aaf4-8329-4aa2-afa2-21cda345f7d4)'
+    azureSubscription: 'Planet'
     ScriptType: 'FilePath'
     ScriptPath: 'NewRoleCreation.ps1'
     ScriptArguments:
