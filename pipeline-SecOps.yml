@@ -7,6 +7,6 @@ steps:
   inputs:
     azureSubscription: 'Planet'
     ScriptType: 'FilePath'
-    ScriptPath: '/SecOps/RBAC_SecOps.ps1'
+    ScriptPath: 'RBAC_SecOps.ps1'
     ScriptArguments:
     azurePowerShellVersion: 'LatestVersion'
