@@ -51,5 +51,5 @@ else
     $Setrole.Actions = $perms
     $Setrole.NotActions = $notperms
     $Setrole.AssignableScopes = $subs
- Set-AzRoleDefinition -Role $Setrole 
+ Set-AzRoleDefinition -Role $Setrole -Verbose
 }
