@@ -1,22 +1,44 @@
 
 #New Custom Azure role definition
-$roleName = "Test RBAC Group"
-$role = Get-AzRoleDefinition -Name $RoleName
-          $role.Name = $roleName
-          $role.Description = "Can monitor, start, and restart virtual machines."
-          $role.Actions.RemoveRange(0,$role.Actions.Count)
-          $role.Actions.Add("Microsoft.Compute/*/read")
-          $role.Actions.Add("Microsoft.Compute/virtualMachines/start/action")
-          $role.Actions.Add("Microsoft.Compute/virtualMachines/restart/action")
-          $role.Actions.Add("Microsoft.Compute/virtualMachines/downloadRemoteDesktopConnectionFile/action")
-          $role.Actions.Add("Microsoft.Network/*/read")
-          $role.Actions.Add("Microsoft.Storage/*/read")
-          $role.Actions.Add("Microsoft.Authorization/*/read")
-          $role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
-          $role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/resources/read")
-          $role.Actions.Add("Microsoft.Insights/alertRules/*")
-          $role.Actions.Add("Microsoft.Support/*")
-          $role.AssignableScopes.Clear()
-          $role.AssignableScopes.Add("/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+$RoleName = 'Custom Application Developer Admin 2'
+$RoleDef = Get-AzRoleDefinition $RoleName 
 
-          New-AzRoleDefinition -Role $roleName
+if ($RoleDef -eq $null)
+{
+Write-host "Existing role not found"
+$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+$role.Name = $RoleName
+$role.Description = 'Custom App Dev Role'
+$role.IsCustom = $true
+#These are the actions allowed by the custom role
+$perms = 'Microsoft.Storage/*/read','Microsoft.Network/*/read','Microsoft.Compute/*/read'
+$perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/virtualMachines/restart/action'
+$perms += 'Microsoft.Authorization/*/read'
+$perms += 'Microsoft.ResourceHealth/availabilityStatuses/read'
+$perms += 'Microsoft.Resources/subscriptions/resourceGroups/read'
+$perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
+$perms += 'Microsoft.Web/*/read'
+$perms += 'Microsoft.Web/*/write'
+$role.Actions = $perms
+#These are the actions explicitly not allowed by the custom role
+$notperms = '*/delete'
+$subs = '/subscriptions/8ee2aaf4-8329-4aa2-afa2-21cda345f7d4','/subscriptions/a70ba5e6-f570-4c74-ba83-aa1f6c9f010a'
+$role.AssignableScopes = $subs
+$role.NotActions = $notperms
+New-AzRoleDefinition -Role $role
+Write-host "Creating new Azure Role Definition"
+}
+else 
+{
+    write-host "Existing role found, updating permissions"
+    $ExistingRole = Get-AzRoleDefinition $RoleName
+    $Setrole = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
+    $Setrole.Name = $ExistingRole.Name
+    $Setrole.id += $ExistingRole.id
+    $Setrole.Description = $ExistingRole.Description
+    $Setrole.IsCustom = $ExistingRole.IsCustom
+    $Setrole.Actions = $perms
+    $Setrole.NotActions = $notperms
+    $Setrole.AssignableScopes = $subs
+ Set-AzRoleDefinition -Role $Setrole 
+}
