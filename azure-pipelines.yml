@@ -28,8 +28,7 @@ steps:
     resourceGroupName: 'RG-Kyle.Green'
     location: 'South Central US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+    csmFileLink: '$(artifactsLocation)RBAC_AppDev.json.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
 
 
