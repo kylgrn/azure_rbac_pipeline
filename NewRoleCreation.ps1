@@ -2,8 +2,7 @@
 #New Custom Azure role definition
 $roleName = "Test RBAC Group"
 $role = Get-AzRoleDefinition -Name $RoleName
-          $role.Id = $null
-          $role.Name = "Virtual Machine Operator"
+          $role.Name = $roleName
           $role.Description = "Can monitor, start, and restart virtual machines."
           $role.Actions.RemoveRange(0,$role.Actions.Count)
           $role.Actions.Add("Microsoft.Compute/*/read")
