@@ -4,7 +4,6 @@
   "IsCustom": true,
   "Description": "Let's you make changes to approved application development services in Azure.",
   "Actions": [
-    "Microsoft.DevTestLab/*",
     "Microsoft.DocumentDB/*",
     "Microsoft.EventGrid/*",
     "Microsoft.Logic/*",
