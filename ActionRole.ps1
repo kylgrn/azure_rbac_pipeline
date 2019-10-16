@@ -1,5 +1,8 @@
 
 
+
+$RoleTemplates = Get-ChildItem "./" -Filter *.JSON
+
 foreach ($r in $RoleTemplates) {
 
 #Check if role exists

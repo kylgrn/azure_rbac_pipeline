@@ -3,9 +3,6 @@ pool:
   demands: azureps
 
 steps:
-- task: PowerShell@2
-  inputs:
-    filePath: 'GetFiles.ps1'
 - task: AzurePowerShell@4
   inputs:
     azureSubscription: 'Planet'
