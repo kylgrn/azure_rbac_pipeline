@@ -1,6 +1,4 @@
 
-$RoleTemplates = Get-ChildItem "./" -Filter *.JSON
-
 
 foreach ($r in $RoleTemplates) {
 
@@ -31,6 +29,5 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
     }
 }
 }
-
 
 
