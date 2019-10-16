@@ -1,6 +1,5 @@
 
 
-
 $RoleTemplates = Get-ChildItem -Path D:\a\1\s\*.JSON -Exclude package.json
 
 foreach ($r in $RoleTemplates) {
@@ -26,9 +25,8 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
         }
     else
     {
-
-    Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
-    write-host 'Updating permissions for custom definition: $RoleGroup.name' -ForegroundColor Green
+        write-host 'Updating permissions for custom definition: $RoleGroup.name' -ForegroundColor Green
+        Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
     }
 }
 }
