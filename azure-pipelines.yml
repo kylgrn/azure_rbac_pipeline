@@ -6,7 +6,7 @@ steps:
   inputs:
     azureSubscription: 'Planet'
     ScriptType: 'FilePath'
-    ScriptPath: 'ActionRole1.ps1'
+    ScriptPath: 'ActionRole.ps1'
     ScriptArguments:
     azurePowerShellVersion: 'LatestVersion'
 
