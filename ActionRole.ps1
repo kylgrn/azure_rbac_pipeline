@@ -6,7 +6,7 @@ $RoleTemplates = Get-ChildItem -Path D:\a\1\s\*.JSON -Exclude package.json
 foreach ($r in $RoleTemplates) {
 
 #Check if role exists
-$RoleGroup = Get-AzRoleDefinition -Name (get-content ($r.name) | convertfrom-json).name 
+$RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name 
 
 
 if ($rolegroup -eq $null) 
@@ -16,7 +16,7 @@ New-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
 }
 else
 {
-$newRoleGroup = $(get-content ($r.name) | convertfrom-json)
+$newRoleGroup = $(get-content ('D:\a\1\s\'+$r.name) | convertfrom-json)
 
 $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,AssignableScopes
 
@@ -27,7 +27,7 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
     else
     {
 
-    Set-AzRoleDefinition -InputFile ($r.name)
+    Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
     write-host 'Updating permissions for custom definition: $RoleGroup.name' -ForegroundColor Green
     }
 }
