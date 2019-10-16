@@ -25,7 +25,7 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
         }
     else
     {
-        write-host 'Updating permissions for custom definition: $RoleGroup.name' -ForegroundColor Green
+        write-host 'Updating permissions for custom definition:' $RoleGroup.name -ForegroundColor Green
         Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
     }
 }
