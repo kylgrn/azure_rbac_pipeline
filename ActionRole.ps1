@@ -1,8 +1,8 @@
 
 
 
-$RoleTemplates = Get-ChildItem "D:\a\1\s\" -Filter *.JSON -Exclude package.json
-$RoleTemplates 
+$RoleTemplates = Get-ChildItem -Path "D:\a\1\s\" -Filter *.JSON -Exclude package.json
+
 foreach ($r in $RoleTemplates) {
 
 #Check if role exists
