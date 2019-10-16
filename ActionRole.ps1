@@ -1,7 +1,7 @@
 
 
 
-$RoleTemplates = Get-ChildItem "./" -Filter *.JSON
+$RoleTemplates = Get-ChildItem "./" -Filter *.JSON -Exclude package.json
 
 foreach ($r in $RoleTemplates) {
 
