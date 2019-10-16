@@ -1,5 +1,5 @@
 
 
-New-AzRoleDefinition -InputFile RBAC_NetOps.json
+New-AzRoleDefinition -InputFile 'D:\a\1\s\RBAC_NetOps.json'
 
 
