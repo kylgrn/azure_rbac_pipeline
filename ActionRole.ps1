@@ -1,7 +1,7 @@
 
 
 
-$RoleTemplates = Get-ChildItem "./" -Filter *.JSON -Exclude package.json
+$RoleTemplates = Get-ChildItem "D:\a\1\s\" -Filter *.JSON -Exclude package.json
 
 foreach ($r in $RoleTemplates) {
 
@@ -16,7 +16,7 @@ New-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
 }
 else
 {
-$newRoleGroup = $(get-content ('D:\a\1\s\'+$r.name) | convertfrom-json)
+$newRoleGroup = $(get-content ('D:\a\1\s\D:\a\1\s\'+$r.name) | convertfrom-json)
 
 $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,AssignableScopes
 
