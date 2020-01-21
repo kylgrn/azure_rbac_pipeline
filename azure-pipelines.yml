@@ -4,7 +4,7 @@ pool:
 steps:
 - task: AzurePowerShell@4
   inputs:
-    azureSubscription: 'DevOps Subscription'
+    azureSubscription: 'Contoso_rbac'
     ScriptType: 'FilePath'
     ScriptPath: 'ActionRole.ps1'
     ScriptArguments:
