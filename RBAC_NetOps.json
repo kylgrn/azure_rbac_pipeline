@@ -2,11 +2,15 @@
   "Name": "Contoso NetOps",
   "Id": "d28e42ca-70fd-458a-b8ad-eac369563310",
   "IsCustom": true,
-  "Description": "Let's you make changes to approved application development services in Azure.",
+  "Description": "Custom role for Contos Network Operations administrators.",
   "Actions": [
-    "Microsoft.Logic/*",
-    "Microsoft.NotificationHubs/*",
-    "Microsoft.SQL/*"
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Network/*",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Resources/deployments/*",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Support/*"
   ],
   "NotActions": [
     "*/delete"      
