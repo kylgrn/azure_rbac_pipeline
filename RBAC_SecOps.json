@@ -1,5 +1,5 @@
 {
-  "Name": "Custom SecOps",
+  "Name": "Contoso SecOps",
   "Id": "d28e42ca-70fd-458a-b8ad-eac369563310",
   "IsCustom": true,
   "Description": "Let's you make changes to approved application development services in Azure.",

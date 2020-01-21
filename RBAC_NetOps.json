@@ -1,12 +1,11 @@
 {
-  "Name": "Custom NetOps",
+  "Name": "Contoso NetOps",
   "Id": "d28e42ca-70fd-458a-b8ad-eac369563310",
   "IsCustom": true,
   "Description": "Let's you make changes to approved application development services in Azure.",
   "Actions": [
     "Microsoft.Logic/*",
     "Microsoft.NotificationHubs/*",
-    "Microsoft.ServiceBus/*",
     "Microsoft.SQL/*"
   ],
   "NotActions": [
