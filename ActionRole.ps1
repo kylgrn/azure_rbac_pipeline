@@ -18,7 +18,7 @@ $RoleTemplates = Get-ChildItem -Path D:\a\1\s\*.JSON -Exclude package.json
 foreach ($r in $RoleTemplates) {
 
 #Check if role exists
-$RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name 
+$RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name
 
 #If no role exists, create new one
 if ($rolegroup -eq $null) 

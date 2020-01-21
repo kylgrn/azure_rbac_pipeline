@@ -10,7 +10,6 @@
     "Microsoft.EventGrid/*",
     "Microsoft.Logic/*",
     "Microsoft.NotificationHubs/*",
-    "Microsoft.ServiceBus/*",
     "Microsoft.SQL/*"
   ],
   "NotActions": [
