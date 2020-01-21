@@ -1,0 +1,22 @@
+{
+  "Name": "Initech Test",
+  "Id": "d28e42ca-70fd-458a-b8ad-eac369563310",
+  "IsCustom": true,
+  "Description": "Lets you manage everything except granting access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "*/delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"  
+],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/8ee2aaf4-8329-4aa2-afa2-21cda345f7d4",
+    "/subscriptions/a70ba5e6-f570-4c74-ba83-aa1f6c9f010a"
+  ]
+}
