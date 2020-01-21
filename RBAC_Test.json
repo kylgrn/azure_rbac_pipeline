@@ -10,7 +10,6 @@
     "*/delete",
     "Microsoft.Authorization/*/Write",
     "Microsoft.Authorization/elevateAccess/Action",
-    "Microsoft.Blueprint/blueprintAssignments/write",
     "Microsoft.Blueprint/blueprintAssignments/delete"  
 ],
   "DataActions": [],
