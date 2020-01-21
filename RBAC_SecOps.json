@@ -2,15 +2,19 @@
   "Name": "Initech SecOps",
   "Id": "d28e42ca-70fd-458a-b8ad-eac369563310",
   "IsCustom": true,
-  "Description": "Let's you make changes to approved application development services in Azure.",
+  "Description": "In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations",
   "Actions": [
-    "Microsoft.DevTestLab/*",
-    "Microsoft.DocumentDB/*",
-    "Microsoft.EventGrid/*",
-    "Microsoft.Logic/*",
-    "Microsoft.NotificationHubs/*",
-    "Microsoft.ServiceBus/*",
-    "Microsoft.SQL/*"
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Management/managementGroups/read",
+    "Microsoft.operationalInsights/workspaces/*/read",
+    "Microsoft.Resources/deployments/*",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Security/*",
+    "Microsoft.Support/*"
   ],
   "NotActions": [
     "*/delete"      
