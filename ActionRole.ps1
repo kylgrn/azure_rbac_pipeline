@@ -21,7 +21,7 @@ foreach ($r in $RoleTemplates) {
 $RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name
 
 #If no role exists, create new one
-if ($rolegroup -eq $null) 
+if ($rolegroup.Name -eq $null) 
 {
 New-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name) 
 
