@@ -40,6 +40,12 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
     else
     {
         write-host 'Updating permissions for custom definition:' $RoleGroup.name -ForegroundColor Green
+       
+        #Validate that the ID assigned by Azure is updated in the JSON template 
+        $role = get-content -Path ('D:\a\1\s\'+$r.name) | convertfrom-json 
+        $azrole = Get-AzRoleDefinition -Name $role.name
+        $role.id = $azrole.id
+        $role | ConvertTo-Json | Set-Content -Path ('D:\a\1\s\'+$r.name)
         Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
     }
 }
