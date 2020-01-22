@@ -10,7 +10,10 @@
                        "*/delete",
                        "Microsoft.Authorization/*/Write",
                        "Microsoft.Authorization/elevateAccess/Action",
-                       "Microsoft.Blueprint/blueprintAssignments/delete"
+                       "Microsoft.Blueprint/blueprintAssignments/delete",
+                       "Microsoft.operationalInsights/workspaces/*/read",
+                       "Microsoft.Resources/deployments/*",
+                       "Microsoft.Resources/subscriptions/resourceGroups/read"
                    ],
     "DataActions":  [
 
