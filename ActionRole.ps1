@@ -22,9 +22,9 @@ foreach ($r in $RoleTemplates) {
 
 #Check if role exists
 $RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name 
-$RoleGroupId = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).id 
+
 #If no role exists, create new one
-if ($rolegroup -eq $null -and $RoleGroupId -eq $null) 
+if ($rolegroup -eq $null) 
 {
 New-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name) 
 
@@ -34,7 +34,7 @@ else
 {
 $newRoleGroup = $(get-content ('D:\a\1\s\'+$r.name) | convertfrom-json)
 
-$Compare = Compare-Object $RoleGroup $newRoleGroup -Property Name,Actions,NotActions,AssignableScopes
+$Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,AssignableScopes
 
     if( $compare -eq $null)
         {
