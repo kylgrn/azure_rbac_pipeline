@@ -16,23 +16,23 @@ When a JSON file is uploaded to the repository or an existing one is updated, th
 #$isCustom = Get-AzRoleDefinition | where {$_.IsCustom -eq "True"}
 
 #Inventory JSON files
-$RoleTemplates = Get-ChildItem -Path D:\a\1\s\*.JSON -Exclude package.json
+$RoleTemplates = Get-ChildItem -Path D:\a\1\s\roles\*.JSON -Exclude package.json
 
 foreach ($r in $RoleTemplates) {
 
 #Check if role exists
-$RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\'+$r.name) | convertfrom-json).name 
+$RoleGroup = Get-AzRoleDefinition -Name (get-content ('D:\a\1\s\roles\'+$r.name) | convertfrom-json).name 
 
 #If no role exists, create new one
 if ($rolegroup -eq $null) 
 {
-New-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name) 
+New-AzRoleDefinition -InputFile ('D:\a\1\s\roles\'+$r.name) 
 
 }
 #If role already exists, check to see if permissions changed
 else
 {
-$newRoleGroup = $(get-content ('D:\a\1\s\'+$r.name) | convertfrom-json)
+$newRoleGroup = $(get-content ('D:\a\1\s\roles\'+$r.name) | convertfrom-json)
 
 $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,AssignableScopes
 
@@ -45,11 +45,11 @@ $Compare = Compare-Object $RoleGroup $newRoleGroup -Property Actions,NotActions,
         write-host 'Updating permissions for custom definition:' $RoleGroup.name -ForegroundColor Green
        
         #Validate that the ID assigned by Azure is updated in the JSON template 
-        $role = get-content -Path ('D:\a\1\s\'+$r.name) | convertfrom-json 
+        $role = get-content -Path ('D:\a\1\s\roles\'+$r.name) | convertfrom-json 
         $azrole = Get-AzRoleDefinition -Name $role.name
         $role.id = $azrole.id
-        $role | ConvertTo-Json | Set-Content -Path ('D:\a\1\s\'+$r.name)
-        Set-AzRoleDefinition -InputFile ('D:\a\1\s\'+$r.name)
+        $role | ConvertTo-Json | Set-Content -Path ('D:\a\1\s\roles\'+$r.name)
+        Set-AzRoleDefinition -InputFile ('D:\a\1\s\roles\'+$r.name)
     }
 }
 }
