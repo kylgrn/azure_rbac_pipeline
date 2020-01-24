@@ -1,6 +1,14 @@
 # Azure "RBAC-as-Code" 
 This solution uses an Azure DevOps CI/CD pipeline for deploying and managing custom RBAC role definitions in Azure. Creating and updating custom RBAC roles is currently only doable using PowerShell, CLI, or JSON. You can choose to use GitHub, Azure Repos, or one of the other supported repositories. 
 
+This solution monitors a repo that contains custom Azure RBAC roles in JSON format. It will trigger a CI/CD pipeline anytime a new action, NotAction, or AssignableScope is changed.  
+
+**Things to note in this version**
+
+- Removing JSON templates from the repo will *not* result in the custom role being deleted, it must be manually removed
+- You **cannot rename the roles**, if you rename a role through the JSON it will create a duplicate role with a new automatically assigned id
+- The templates in the "roles" folder are just examples, these can also be named however you would like without requiring changes to ActionRole.ps1
+
 ![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/AzureRBACDevOps.png)
 
 **Step 1:** Create an Azure DevOps account if you haven't already. This process can be started by visiting the landing page at: https://dev.azure.com
