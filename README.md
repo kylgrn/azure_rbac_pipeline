@@ -10,4 +10,13 @@ This solution uses an Azure DevOps CI/CD pipeline for deploying and managing cus
 
 **Step 4:** Clone this repository and store in the repository of your choice. 
 
-**Step 5:** Create a s
+**Step 5:** Create a service connection for DevOps to use in Azure. When granting permissions, you can do so at the resource group, subscription, or management group level. This particular pipeline and solution is managing objects at the Azure AD tenant level, so the scope won't be important here as the changes will be global. https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops 
+![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/2-Account.png)
+
+Take note of the "Connection Name" you define as you'll need to update the azure-pipelines.yml and define it as the value for "azureSubscription":
+![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/3-AccountInfo.png)
+
+
+
+
+**Step 6:** Grant the account you created 
