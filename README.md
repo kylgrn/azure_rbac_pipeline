@@ -16,7 +16,7 @@ This solution uses an Azure DevOps CI/CD pipeline for deploying and managing cus
 Take note of the "Connection Name" you define as you'll need to update the azure-pipelines.yml and define it as the value for "azureSubscription":
 ![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/3-AccountInfo.png)
 
+**Step 6:** In the Azure portal, you'll need to grant the account created in step 5 the "User Access Administrator" role. This will allow the role to create, update, and delete custom roles in Azure AD. 
 
-
-
-**Step 6:** Grant the account you created 
+Here you can see my account and the "User Access Administrator" role granted to it:
+![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/4-Permissions.png)
