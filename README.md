@@ -1,7 +1,7 @@
 # Azure "RBAC-as-Code" 
 This solution uses an Azure DevOps CI/CD pipeline for deploying and managing custom RBAC role definitions in Azure. Creating and updating custom RBAC roles is currently only doable using PowerShell, CLI, or JSON. You can choose to use GitHub, Azure Repos, or one of the other supported repositories. 
 
-This solution monitors a repo that contains custom Azure RBAC roles in JSON format. It will trigger a CI/CD pipeline anytime a new action, NotAction, or AssignableScope is changed.  
+This solution monitors a repo that contains custom Azure RBAC roles in JSON format. It will trigger a CI/CD pipeline anytime a new action, NotAction, or AssignableScope is changed.  If someone manually overrides the permissions by using PowerShell or CLI directly against Azure, the pipeline and stored JSON files will override any manually changes. 
 
 **Things to note in this version**
 
@@ -28,7 +28,6 @@ Take note of the "Connection Name" you define as you'll need to update the azure
 
 Here you can see my account and the "User Access Administrator" role granted to it:
 ![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/4-Permissions.png)
-
 
 
 Here's an example output from a job that shows no changes to several existing custom RBAC roles, and a new role being created called "Initech Test4":
