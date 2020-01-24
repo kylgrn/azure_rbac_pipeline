@@ -28,3 +28,9 @@ Take note of the "Connection Name" you define as you'll need to update the azure
 
 Here you can see my account and the "User Access Administrator" role granted to it:
 ![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/4-Permissions.png)
+
+
+
+Here's an example output from a job that shows no changes to several existing custom RBAC roles, and a new role being created called "Initech Test4":
+
+![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/5-Example.png)
