@@ -4,5 +4,5 @@ This solution uses an Azure DevOps CI/CD pipeline for deploying and managing cus
 
 
 
-Step 1: Create an Azure DevOps account if you haven't already. This process can be started by visiting the landing page at: https://dev.azure.com
+**Step 1:** Create an Azure DevOps account if you haven't already. This process can be started by visiting the landing page at: https://dev.azure.com
 ![alt text](https://github.com/kylgrn/azure_rbac_pipeline/blob/master/images/1-SignUp.png)
