@@ -13,7 +13,8 @@
                        "Microsoft.Blueprint/blueprintAssignments/delete",
                        "Microsoft.operationalInsights/workspaces/*/read",
                        "Microsoft.Resources/deployments/*",
-                       "Microsoft.Resources/subscriptions/resourceGroups/read"
+                       "Microsoft.Resources/subscriptions/resourceGroups/read",
+                       "Microsoft.ResourceHealth/availabilityStatuses/read",
                    ],
     "DataActions":  [
 
