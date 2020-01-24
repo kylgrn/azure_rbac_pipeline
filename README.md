@@ -10,4 +10,4 @@ This solution uses an Azure DevOps CI/CD pipeline for deploying and managing cus
 
 **Step 4:** Clone this repository and store in the repository of your choice. 
 
-**Step 5:** 
+**Step 5:** Create a s

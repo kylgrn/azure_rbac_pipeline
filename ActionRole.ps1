@@ -12,8 +12,6 @@ When a JSON file is uploaded to the repository or an existing one is updated, th
 4) Update existing role
 #>
 
-#Store all custom roles in a variable
-#$isCustom = Get-AzRoleDefinition | where {$_.IsCustom -eq "True"}
 
 #Inventory JSON files
 $RoleTemplates = Get-ChildItem -Path D:\a\1\s\roles\*.JSON -Exclude package.json
